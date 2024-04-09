@@ -70,6 +70,10 @@ RUN apk add --no-cache -t .build-deps \
   && echo "===> Clean up unnecessary files..." \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
+  
+RUN apt-get update && apt-get install -y \
+    virtualbox \
+    && rm -rf var/lib/apt/lists/*
 
 COPY conf /cuckoo/conf
 COPY update_conf.py /update_conf.py
