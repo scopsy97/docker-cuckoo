@@ -48,7 +48,7 @@ services:
       args:
         - CUCKOO_UID=1000
     ports:
-        - "8000:1337"
+        - "8001:1337"
     command: api
     volumes:
       - ./cuckoo-tmp/:/tmp/cuckoo-tmp/
@@ -58,7 +58,7 @@ services:
       - ./vbox/config-file.env
 
   mongo:
-    image: mongo
+    image: mongo:4.4
     volumes:
       - mongo-data:/data/db
 
